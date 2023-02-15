@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane fx:id="bpFX" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.iesalquerias.barometerfx.Controller">
+   <top>
+      <MenuBar id="mbMenu" fx:id="mbMenu" stylesheets="@DarkTheme.css" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu id="mArchive" fx:id="mArchive" mnemonicParsing="false" text="Archivo">
+            <items>
+                  <MenuItem id="miExport" fx:id="miExport" mnemonicParsing="false" text="Exportar Historial" />
+              <MenuItem id="miExit" fx:id="miExit" mnemonicParsing="false" text="Salir" />
+            </items>
+          </Menu>
+          <Menu id="mLanguage" fx:id="mLanguage" mnemonicParsing="false" text="Idioma">
+            <items>
+                  <MenuItem id="miSpanish" fx:id="miSpanish" mnemonicParsing="false" text="Español" />
+              <MenuItem id="miEnglish" fx:id="miEnglish" mnemonicParsing="false" text="Inglés" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label id="lAltitude" fx:id="lAltitude" layoutX="18.0" layoutY="43.0" prefHeight="25.0" prefWidth="36.0" text="Altura" />
+            <Label id="lPreassure" fx:id="lPreassure" layoutX="18.0" layoutY="94.0" text="Presión" />
+            <RadioButton id="rbPreassureMmHg" fx:id="rbPreassureMmHg" layoutX="191.0" layoutY="84.0" mnemonicParsing="false" text="mmHg">
+               <toggleGroup>
+                  <ToggleGroup fx:id="prMeasurement" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton id="rbPreassurehPa" fx:id="rbPreassurehPa" layoutX="191.0" layoutY="105.0" mnemonicParsing="false" text="hPa" toggleGroup="$prMeasurement" />
+            <TextField id="tfPreassure" fx:id="tfPreassure" layoutX="73.0" layoutY="85.0" prefHeight="35.0" prefWidth="105.0" promptText="760mmHg" />
+            <TextField id="tfAltitude" fx:id="tfAltitude" layoutX="73.0" layoutY="38.0" prefHeight="35.0" prefWidth="105.0" promptText="en mm:" />
+            <DatePicker id="dpCalendar" fx:id="dpCalendar" layoutX="18.0" layoutY="176.0" prefHeight="25.0" prefWidth="161.0" />
+            <Button id="btUpdate" fx:id="btUpdate" layoutX="248.0" layoutY="234.0" mnemonicParsing="false" onAction="#click" prefHeight="33.0" prefWidth="135.0" stylesheets="@DarkTheme.css" text="Actualizar" />
+            <Spinner fx:id="sHour" layoutX="57.0" layoutY="209.0" prefHeight="25.0" prefWidth="123.0" />
+            <Label fx:id="lHour" layoutX="18.0" layoutY="213.0" text="Hora" />
+         </children>
+      </Pane>
+   </center>
+   <right>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView id="ivIcon" fx:id="ivIcon" accessibleText="Icon Image" fitHeight="227.0" fitWidth="200.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/icon.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </right>
+   <bottom>
+      <Pane prefHeight="151.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea id="taHistory" fx:id="taHistory" layoutY="1.0" prefHeight="150.0" prefWidth="640.0" />
+         </children>
+      </Pane>
+   </bottom>
+</BorderPane>
